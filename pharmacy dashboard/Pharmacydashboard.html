@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Pharmacy Dashboard</h2>
+
+    <!-- Pharmacist Info -->
+    <div class="card" id="pharmacistInfo">
+        <h3>Pharmacist Information</h3>
+        <p><strong>Name:</strong> <span id="pharmaName"></span></p>
+        <p><strong>License:</strong> <span id="pharmaLicense"></span></p>
+        <p><strong>Specialization:</strong> <span id="pharmaSpecialization"></span></p>
+    </div>
+
+    <!-- Medicine Management -->
+    <div class="card small-card">
+      <h3>Manage Medicines</h3>
+      <div class="medicine-form">
+        <input type="text" id="medName" placeholder="Medicine Name">
+        <input type="number" id="medQty" placeholder="Quantity">
+        <input type="number" id="medPrice" placeholder="Price">
+        <button class="action-btn" onclick="addMedicine()">Add</button>
+      </div>
+
+      <h4>Current Stock:</h4>
+      <ul id="medicineList"></ul>
+    </div>
+
+    <!-- Incoming Orders -->
+    <div class="card">
+      <h3>Incoming Orders</h3>
+      <ul id="ordersList"></ul>
+    </div>
+
+    <!-- Logout -->
+    <button class="action-btn logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if(document.getElementById('pharmacistInfo')){
+        initDashboard();
+    }
+  </script>
+</body>
+</html>
