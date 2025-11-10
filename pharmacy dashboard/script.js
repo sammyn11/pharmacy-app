@@ -2,7 +2,7 @@
 let users = JSON.parse(localStorage.getItem('users')) || [];
 let medicines = JSON.parse(localStorage.getItem('medicines')) || [];
 let orders = JSON.parse(localStorage.getItem('orders')) || [
-    {patient:"John Doe", med:"Paracetamol", qty:2, verified:false},
+    {patient:"John Doe", med:"Paracetamol", qty:2, verified:true},
     {patient:"Jane Smith", med:"Amoxicillin", qty:1, verified:false}
 ];
 
@@ -57,6 +57,33 @@ function login(){
         window.location.href = "patient.html";
     }
 }
+
+// -------------------- Password Recovery --------------------
+
+function recoverPasswordPage() {
+    const email = document.getElementById('recoverEmail').value.trim();
+    const newPassword = document.getElementById('recoverNewPassword').value;
+
+    if (!email || !newPassword) {
+        alert("Fill in both email and new password.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const userIndex = users.findIndex(u => u.email === email);
+
+    if (userIndex === -1) {
+        alert("Email not found!");
+        return;
+    }
+
+    users[userIndex].password = newPassword;
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert("Password reset successful! You can now login.");
+    window.location.href = "SignUp.html"; 
+}
+
 
 
 // -------------------- Dashboard Functions --------------------
@@ -145,7 +172,7 @@ function deleteMedicine(index){
 
 function clearMedicineInputs(){document.getElementById('medName').value='';document.getElementById('medQty').value='';document.getElementById('medPrice').value='';}
 
-// ------------- Orders Management -------------
+
 // -------------------- Orders Management --------------------
 function displayOrders(){
     const list = document.getElementById('ordersList');

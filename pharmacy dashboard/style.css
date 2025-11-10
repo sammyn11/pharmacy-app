@@ -192,4 +192,56 @@ a {
 }
 a:hover {
   text-decoration: underline;
+  
+}
+/* Password recovery form (inline) */
+#recoverForm {
+  background-color: #f8fbff;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #ADD8E6;
+}
+
+/* Inputs inside recovery form */
+#recoverForm input[type="email"],
+#recoverForm input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Reset password button inside recovery form */
+#recoverForm button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #4de7ff; /* light blue */
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#recoverForm button:hover {
+  background-color: #3399ff;
+}
+
+/* Cancel link inside recovery form */
+#recoverForm a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#recoverForm a:hover {
+  color: #3399ff;
 }
